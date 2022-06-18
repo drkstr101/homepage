@@ -9,13 +9,15 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".eslintrc.json": "*"
+    ".eslintrc.json": "*",
+    ".stylelintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "stylelint"],
+        "accessToken": "ZDE4MjRiN2YtODhmMy00NGFjLWIyZTEtZTJmNTQzZjkwODUyfHJlYWQtd3JpdGU="
       }
     }
   },
@@ -23,5 +25,24 @@
     "build": {
       "dependsOn": ["^build"]
     }
-  }
+  },
+  "cli": {
+    "defaultCollection": "@nxext/vite"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nxext/vite": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "web"
 }
