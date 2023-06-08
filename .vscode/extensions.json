@@ -3,6 +3,8 @@
     "rebornix.ruby",
     "aliariff.vscode-erb-beautify",
     "aki77.rails-db-schema",
-    "castwide.solargraph"
+    "castwide.solargraph",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
   ]
 }
