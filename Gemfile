@@ -65,6 +65,9 @@ group :development do
 
   # Use solargraph ruby language server [https://solargraph.org/]
   gem "solargraph"
+
+  # Setup htmlbe
+  gem "htmlbeautifier"
 end
 
 group :test do
