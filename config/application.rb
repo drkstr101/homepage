@@ -18,5 +18,9 @@ module Homepage
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Allow gitpod preview host
+    config.hosts << /3000-drkstr101-homepage-.+\.ws-.+\.gitpod\.io/
+
   end
 end

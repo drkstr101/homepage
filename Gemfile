@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Use solargraph ruby language server [https://solargraph.org/]
+  gem "solargraph"
 end
 
 group :test do
