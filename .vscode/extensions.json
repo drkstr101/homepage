@@ -2,6 +2,7 @@
   "recommendations": [
     "rebornix.ruby",
     "aliariff.vscode-erb-beautify",
-    "aki77.rails-db-schema"
+    "aki77.rails-db-schema",
+    "castwide.solargraph"
   ]
 }

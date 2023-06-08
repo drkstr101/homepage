@@ -8,6 +8,12 @@
   "[html]": {
     "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
   },
+  "[ruby]": {
+    "editor.defaultFormatter": "castwide.solargraph"
+  },
+  "[gemfile]": {
+    "editor.defaultFormatter": "castwide.solargraph"
+  },
   "emmet.includeLanguages": {
     "erb": "html"
   },
