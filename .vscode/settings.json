@@ -8,9 +8,19 @@
   "[html]": {
     "editor.defaultFormatter": "aliariff.vscode-erb-beautify",
   },
+  "[ruby]": {
+    "editor.defaultFormatter": "castwide.solargraph"
+  },
+  "[gemfile]": {
+    "editor.defaultFormatter": "castwide.solargraph"
+  },
   "emmet.includeLanguages": {
     "erb": "html"
   },
   "emmet.showAbbreviationSuggestions": true,
-  "emmet.showSuggestionsAsSnippets": true
+  "emmet.showSuggestionsAsSnippets": true,
+  "solargraph.transport": "stdio",
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true
 }

@@ -1,0 +1,14 @@
+{
+  "name": "homepage",
+  "version": "0.0.0",
+  "description": "Watheia Labs Website",
+  "main": "index.js",
+  "repository": "https://github.com/drkstr101/homepage.git",
+  "author": "Aaron Miller <drkstr101@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "prettier": "^2.8.8"
+  }
+}
