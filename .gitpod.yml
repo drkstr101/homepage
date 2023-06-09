@@ -1,7 +1,7 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: Startup Task
-    init: yarn
+    init: yarn && bin/bundle install
     before: bin/bundle install
     command: bin/rails server
 
