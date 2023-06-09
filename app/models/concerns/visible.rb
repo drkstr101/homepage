@@ -6,7 +6,7 @@ module Visible
 
   VALID_STATUSES = %w[public private archived].freeze
 
-  included do
+  included([Article, Comment]) do
     validates :status, inclusion: { in: VALID_STATUSES }
   end
 
