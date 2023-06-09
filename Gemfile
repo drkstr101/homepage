@@ -54,6 +54,7 @@ group :development, :test do
 
   gem 'htmlbeautifier', '~> 1.4'
   gem 'rubocop', '~> 1.52'
+  gem 'rubocop-rails', '~> 2.19'
   gem 'solargraph', '~> 0.49.0'
 end
 
