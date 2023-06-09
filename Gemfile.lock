@@ -265,13 +265,14 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-  htmlbeautifier
+  htmlbeautifier (~> 1.4)
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.5)
+  rubocop (~> 1.52)
   selenium-webdriver
-  solargraph
+  solargraph (~> 0.49.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

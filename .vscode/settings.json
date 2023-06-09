@@ -22,5 +22,10 @@
   "solargraph.transport": "stdio",
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
-  "solargraph.autoformat": true
+  "solargraph.autoformat": true,
+  "cSpell.words": [
+    "rubocop",
+    "solargraph",
+    "typecheck"
+  ]
 }
