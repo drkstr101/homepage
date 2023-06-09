@@ -21,6 +21,5 @@ module Homepage
 
     # Allow gitpod preview host
     config.hosts << /3000-drkstr101-homepage-.+\.ws-.+\.gitpod\.io/
-
   end
 end
