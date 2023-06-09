@@ -2,6 +2,8 @@
 
 # ArticlesController handles primary page routes
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name: 'admin', password: 'waweb2023', except: %i[index show]
+
   def index
     @articles = Article.all
   end
