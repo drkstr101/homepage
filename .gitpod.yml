@@ -1,13 +1,12 @@
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
-
 image:
   file: .gitpod.Dockerfile
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-  - name: Startup Task
-    init: yarn install
-    command: bin/setup && bin/rails server
+  - name: Setup Task
+    # because yard doesn't know how to resolve system paths...
+    init: ln -fs /home/gitpod/.rvm/rubies/ruby-3.2.1/bin/ruby /workspace/.rvm/ruby-3.2.1/bin/ruby
+    command: bin/setup && bin/dev
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
@@ -15,16 +14,18 @@ ports:
     description: Port 3000 for the frontend
     port: 3000
     onOpen: open-preview
-  - name: PostgreSQL server
-    port: 5432
-    onOpen: ignore
 
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 vscode:
   extensions:
     - aki77.rails-db-schema
     - aliariff.vscode-erb-beautify
+    - bradlc.vscode-tailwindcss
     - castwide.solargraph
+    - csstools.postcss
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
+    - ms-azuretools.vscode-docker
     - rebornix.ruby
+    - stylelint.vscode-stylelint
     - wingrunr21.vscode-ruby

@@ -2,13 +2,24 @@
   "name": "homepage",
   "version": "0.0.0",
   "description": "Watheia Labs Website",
-  "main": "index.js",
   "repository": "https://github.com/drkstr101/homepage.git",
   "author": "Aaron Miller <drkstr101@gmail.com>",
-  "license": "MIT",
   "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "@tailwindcss/forms": "^0.5.3",
+    "tailwindcss": "^3.3.2"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+  },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "esbuild": "^0.18.0",
     "eslint": "^8.42.0",
+    "postcss": "^8.4.24",
     "prettier": "^2.8.8"
   }
 }
