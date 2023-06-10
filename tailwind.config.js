@@ -18,7 +18,7 @@ module.exports = {
     prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
   },
-   theme: {
+  theme: {
     fontSize: {
       xs: ['0.875rem', { lineHeight: '1.5rem' }],
       sm: ['1rem', { lineHeight: '1.5rem' }],
@@ -48,6 +48,7 @@ module.exports = {
         '5xl': '2.5rem',
       },
       colors: ({ colors }) => ({
+        neutral: colors.slate,
         primary: colors.cyan,
         secondary: colors.sky,
         accent: colors.teal,
