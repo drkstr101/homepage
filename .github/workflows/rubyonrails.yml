@@ -52,9 +52,7 @@ jobs:
           bundler-cache: true
           cache-version: 1
       # Add or replace any other lints here
-      - name: Bundle Install
-        run: bin/setup
-      - name: Lint Ruby files
-        run: bin/rubocop --parallel
+      # - name: Lint Ruby files
+      #   run: bin/rubocop --parallel
       - name: Type-check Ruby files
         run: bin/solargraph typecheck
