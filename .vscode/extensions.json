@@ -1,10 +1,10 @@
 {
   "recommendations": [
-    "rebornix.ruby",
-    "aliariff.vscode-erb-beautify",
     "aki77.rails-db-schema",
+    "aliariff.vscode-erb-beautify",
     "castwide.solargraph",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint"
+    "rebornix.ruby"
   ]
 }

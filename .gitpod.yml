@@ -1,9 +1,19 @@
+image:
+  file: .gitpod.Dockerfile
+
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-  - name: Startup Task
-    init: yarn && bin/bundle install
-    before: bin/bundle install
-    command: bin/rails server
+  - name: Install Dependencies
+    init: |
+      bin/bundle install && yarn install
+      gp sync-done installs
+    openMode: split-left
+  - name: Start Dev Server
+    init: gp sync-await installs
+    command: |
+      bin/rake db:create
+      bin/rails server -b 0.0.0.0
+    openMode: split-right
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
@@ -11,4 +21,16 @@ ports:
     description: Port 3000 for the frontend
     port: 3000
     onOpen: open-preview
+  - name: PostgreSQL server
+    port: 5432
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - aliariff.vscode-erb-beautify
+    - rebornix.ruby
+    - castwide.solargraph
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
