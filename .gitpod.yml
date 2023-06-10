@@ -6,19 +6,19 @@ image:
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: Startup Task
-    init: yarn install && bin/bundle install
-    command: bin/rake db:create && bin/rails server
-  # - name: Install Dependencies
-  #   init: |
-  #     bin/bundle install && yarn install
-  #     gp sync-done installs
-  #   openMode: split-left
-  # - name: Start Dev Server
-  #   init: gp sync-await installs
-  #   command: |
-  #     bin/rake db:create
-  #     bin/rails server -b 0.0.0.0
-  #   openMode: split-right
+    init: yarn install
+    command: |
+      bin/setup
+      bin/rails server
+  - name: Install Dependencies
+    init: |
+      bin/setup && yarn install
+      gp sync-done installs
+    openMode: split-left
+  - name: Start Dev Server
+    init: gp sync-await installs
+    command: bin/bundle install && bin/rails server
+    openMode: split-right
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
