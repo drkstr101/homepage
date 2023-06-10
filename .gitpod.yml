@@ -6,12 +6,8 @@ image:
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: Startup Task
-    init: |
-      yarn install
-      bin/bundle install
-    command: |
-      bin/rake db:create
-      bin/rails server
+    init: yarn install && bin/bundle install
+    command: bin/rake db:create && bin/rails server
   # - name: Install Dependencies
   #   init: |
   #     bin/bundle install && yarn install
@@ -38,7 +34,8 @@ vscode:
   extensions:
     - aki77.rails-db-schema
     - aliariff.vscode-erb-beautify
-    - rebornix.ruby
     - castwide.solargraph
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
+    - rebornix.ruby
+    - wingrunr21.vscode-ruby

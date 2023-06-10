@@ -5,6 +5,7 @@
     "castwide.solargraph",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "rebornix.ruby"
+    "rebornix.ruby",
+    "wingrunr21.vscode-ruby"
   ]
 }
