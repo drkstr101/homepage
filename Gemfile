@@ -59,7 +59,7 @@ group :development, :test do
 
   gem 'htmlbeautifier', '~> 1.4'
   gem 'rubocop', '~> 1.52'
-  gem "rubocop-discourse", "~> 3.2"
+  gem 'rubocop-capybara', '~> 2.18'
   gem 'rubocop-rails', '~> 2.19'
   gem 'solargraph', '~> 0.49.0'
 end
@@ -81,5 +81,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem "rubocop-capybara", "~> 2.18"

@@ -18,6 +18,5 @@ AllCops:
   Exclude:
     - 'db/migrate/*'
     - 'bin/*'
-
-inherit_gem:
-  rubocop-discourse: default.yml
+# inherit_gem:
+#   rubocop-discourse: default.yml
