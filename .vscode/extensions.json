@@ -6,6 +6,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "rebornix.ruby",
-    "wingrunr21.vscode-ruby"
+    "wingrunr21.vscode-ruby",
+    "bradlc.vscode-tailwindcss"
   ]
 }

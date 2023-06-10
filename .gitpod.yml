@@ -6,7 +6,7 @@ tasks:
   - name: Setup Task
     # because yard doesn't know how to resolve system paths...
     init: ln -fs /home/gitpod/.rvm/rubies/ruby-3.2.1/bin/ruby /workspace/.rvm/ruby-3.2.1/bin/ruby
-    command: bin/setup && bin/dev
+    command: yarn && bin/setup && bin/dev
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
