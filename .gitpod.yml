@@ -7,8 +7,9 @@ image:
 tasks:
   - name: Startup Task
     # Setup a link to the actual ruby bin to work around poorly written gems
-    init: ln -s /home/gitpod/.rvm/rubies/ruby-3.2.1/bin/ruby /workspace/.rvm/ruby-3.2.1/bin/ruby
-    command: bin/setup && bin/dev
+    # init: ln -s /home/gitpod/.rvm/rubies/ruby-3.2.1/bin/ruby /workspace/.rvm/ruby-3.2.1/bin/ruby
+    init: yarn install && bin/setup
+    command: bin/dev
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
