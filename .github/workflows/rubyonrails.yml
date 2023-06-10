@@ -4,35 +4,36 @@
 #
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
-name: "Ruby on Rails CI"
+name: 'Ruby on Rails CI'
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
-    branches: ["main"]
+    branches: ['main']
 jobs:
   test:
     runs-on: ubuntu-latest
-    # services:
-    #   postgres:
-    #     image: postgres:11-alpine
-    #     ports:
-    #       - "5432:5432"
-    #     env:
-    #       POSTGRES_DB: rails_test
-    #       POSTGRES_USER: rails
-    #       POSTGRES_PASSWORD: password
+    services:
+      postgres:
+        image: postgres:11-alpine
+        ports:
+          - '5432:5432'
+        env:
+          POSTGRES_DB: homepage_development
+          POSTGRES_USER: homepage
+          POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      # DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+      DATABASE_URL: 'postgres://homepage:password@localhost:5432/homepage_development'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       # Add or replace dependency steps here
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1 # v1.146.0
         with:
           bundler-cache: true
+          cache-version: 2
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
@@ -46,12 +47,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1 # v1.146.0
         with:
           bundler-cache: true
-          cache-version: 1
+          cache-version: 2
       # Add or replace any other lints here
-      # - name: Lint Ruby files
-      #   run: bin/rubocop --parallel
       - name: Type-check Ruby files
-        run: bin/solargraph typecheck
+        run: bin/solargraph typecheckg
+      - name: Lint Ruby files
+        run: bin/rubocop --parallel

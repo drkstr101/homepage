@@ -13,5 +13,5 @@ require: rubocop-rails
 
 AllCops:
   Exclude:
-    - "db/**/*"
-    - "bin/*"
+    - 'db/**/*'
+    - 'bin/*'
