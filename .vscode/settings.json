@@ -23,6 +23,7 @@
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
+  "vscode-erb-beautify.executePath": "bin/htmlbeautifier",
   "cSpell.words": [
     "rubocop",
     "solargraph",
