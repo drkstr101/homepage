@@ -4,16 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-div,
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-span,
-pre {
-  font-variant-ligatures: contextual;
+code {
+  font-family: 'Fira Code', monospace;
+}
+
+@supports (font-variation-settings: normal) {
+  code {
+    font-family: 'Fira Code VF', monospace;
+  }
 }
