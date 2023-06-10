@@ -8,12 +8,17 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# Homepage
 module Homepage
   # Application
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    # Run rubocop fix after generate
+    config.generators.after_generate do |files|
+      parsable_files = files.filter { |file| file.end_with?('.rb') }
+      system("bundle exec rubocop -A --fail-level=E #{parsable_files.shelljoin}")
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #

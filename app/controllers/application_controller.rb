@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# ApplicationController - top level page router
+# ApplicationController - Top level page router
 class ApplicationController < ActionController::Base
   def index
-    @articles = Article.all
+    # @articles = Article.all
   end
 end
