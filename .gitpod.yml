@@ -1,19 +1,28 @@
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+
 image:
   file: .gitpod.Dockerfile
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-  - name: Install Dependencies
+  - name: Startup Task
     init: |
-      bin/bundle install && yarn install
-      gp sync-done installs
-    openMode: split-left
-  - name: Start Dev Server
-    init: gp sync-await installs
+      yarn install
+      bin/bundle install
     command: |
       bin/rake db:create
-      bin/rails server -b 0.0.0.0
-    openMode: split-right
+      bin/rails server
+  # - name: Install Dependencies
+  #   init: |
+  #     bin/bundle install && yarn install
+  #     gp sync-done installs
+  #   openMode: split-left
+  # - name: Start Dev Server
+  #   init: gp sync-await installs
+  #   command: |
+  #     bin/rake db:create
+  #     bin/rails server -b 0.0.0.0
+  #   openMode: split-right
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
@@ -27,10 +36,9 @@ ports:
 
 vscode:
   extensions:
+    - aki77.rails-db-schema
     - aliariff.vscode-erb-beautify
     - rebornix.ruby
     - castwide.solargraph
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
-
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
