@@ -25,7 +25,7 @@
         <ul class="menu menu-horizontal">
           <% if user_signed_in? %>
             <%= render 'blocks/molecules/user_menu' %>
-          <% elsif controller_name != 'sessions' %>
+          <% elsif controller_name != 'sessions' && controller_name != 'registrations' %>
             <%= link_to 'login', new_user_session_path, class: 'font-semibold hover:font-extrabold' %>
           <% end %>
         </ul>
