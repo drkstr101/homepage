@@ -7,7 +7,7 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
   ],
-  plugins: [require('daisyui'), require('@tailwindcss/forms')],
+  plugins: [/*require('daisyui'), */ require('@tailwindcss/forms')],
   daisyui: {
     themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: 'dark', // name of one of the included themes for dark mode
@@ -57,8 +57,9 @@ module.exports = {
       }),
       fontFamily: {
         sans: ['Fira Sans', ...fontFamily.sans],
-        mono: ['Fira Code', ...fontFamily.mono],
-        condensed: ['Fira Sans Condensed', ...fontFamily.sans],
+        mono: ['Fira Mono', ...fontFamily.mono],
+        // primary text/body font
+        book: ['Fira Sans Book', ...fontFamily.sans],
       },
       keyframes: {
         'fade-in': {
