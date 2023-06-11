@@ -87,4 +87,4 @@ group :production do
   # gem 'pg', '~> 1.1'
 end
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
