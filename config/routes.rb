@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   # Setup user routes
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' } do
+    # get 'login', to: 'devise/sessions#new'
+    # get 'register', to: 'devise/registrations#new'
+  end
 end

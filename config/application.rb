@@ -20,6 +20,8 @@ module Homepage
       system("bundle exec rubocop -A --fail-level=E #{parsable_files.shelljoin}")
     end
 
+    config.action_controller.include_all_helpers = false
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
