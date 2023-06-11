@@ -14,7 +14,8 @@ require:
   - rubocop-rails
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 3.2.1
   Exclude:
-    - "db/migrate/*"
-    - "bin/*"
+    - 'db/migrate/*'
+    - 'bin/*'
