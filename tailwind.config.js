@@ -7,7 +7,7 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
   ],
-  plugins: [/*require('daisyui'), */ require('@tailwindcss/forms')],
+  plugins: [require('daisyui'), require('@tailwindcss/forms')],
   daisyui: {
     themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: 'dark', // name of one of the included themes for dark mode
@@ -17,6 +17,36 @@ module.exports = {
     rtl: false, // rotate style direction from left-to-right to right-to-left. You also need to add dir="rtl" to your html tag and install `tailwindcss-flip` plugin for Tailwind CSS.
     prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+    themes: [
+      {
+        light: {
+          primary: '#22d3ee',
+          secondary: '#6366f1',
+          accent: '#22d3ee',
+          neutral: '#181A2A',
+          'base-100': '#fafafa',
+          'base-200': '#f5f5f5',
+          'base-300': '#e5e5e5',
+          info: '#3ABFF8',
+          success: '#36D399',
+          warning: '#FBBD23',
+          error: '#F87272',
+        },
+        dark: {
+          primary: '#22d3ee',
+          secondary: '#6366f1',
+          accent: '#22d3ee',
+          neutral: '#181A2A',
+          'base-100': '#0a0a0a',
+          'base-200': '#171717',
+          'base-300': '#262626',
+          info: '#3ABFF8',
+          success: '#36D399',
+          warning: '#FBBD23',
+          error: '#F87272',
+        },
+      },
+    ],
   },
   theme: {
     fontSize: {
@@ -50,7 +80,7 @@ module.exports = {
       colors: ({ colors }) => ({
         neutral: colors.slate,
         primary: colors.cyan,
-        secondary: colors.sky,
+        secondary: colors.indigo,
         accent: colors.teal,
         white: '#fafafa',
         black: '#0a0a0a',

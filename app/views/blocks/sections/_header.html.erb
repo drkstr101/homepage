@@ -1,4 +1,54 @@
-<header class="absolute inset-x-0 top-0 z-50">
-  <%= render 'blocks/molecules/navigator' %>
-  <%# TODO If menu open render mobile_navigator  %>
+<header class="drawer absolute inset-x-0 top-0 z-50">
+  <input id="wa-navigation-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="w-full navbar flex items-center justify-between mx-auto max-w-7xl p-6 lg:px-8">
+      <div class="flex lg:hidden">
+        <label for="wa-navigation-drawer" class="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </label>
+      </div>
+      <div class="flex-0 px-2 ml-2 mr-8">
+        <%= link_to root_path do %>
+          <span class="sr-only">Watheia Labs</span>
+          <img class="h-12 w-auto" src="/images/logo.png" alt="">
+        <% end %>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-8">
+        <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Solutions</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Blog</a>
+        <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Contact</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <ul class="menu menu-horizontal">
+          <% if user_signed_in? %>
+            <%= render 'blocks/molecules/user_menu' %>
+          <% else %>
+            <%= link_to 'login', new_user_session_path, class: 'font-semibold hover:font-extrabold' %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-side">
+    <label for="wa-navigation-drawer" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 w-80 p-4 h-full">
+      <!-- Sidebar content here -->
+      <li>
+        Solutions
+        <ul>
+          <li><%= link_to 'Design System', "#" %></li>
+          <li><%= link_to 'Site Builder', "#" %></li>
+          <li><%= link_to 'Bean Counter', "#" %></li>
+          <li><%= link_to 'Auto DevOps', "#" %></li>
+        </ul>
+      </li>
+      <li><%= link_to 'Blog', "#" %></li>
+      <li><%= link_to 'Contact', "#" %></li>
+      <hr class="mt-4 mb-1"/>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+    </ul>
+  </div>
 </header>
