@@ -3,9 +3,11 @@
 one:
   name: MyString
   branch: MyString
-  posts: one
+  posts:
+    - one
 
 two:
   name: MyString
   branch: MyString
-  posts: two
+  posts:
+    - two

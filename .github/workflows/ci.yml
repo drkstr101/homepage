@@ -1,0 +1,91 @@
+# This workflow uses actions that are not certified by GitHub.  They are
+# provided by a third-party and are governed by separate terms of service,
+# privacy policy, and support documentation.
+#
+# This workflow will install a prebuilt Ruby version, install dependencies, and
+# run tests and linters.
+name: 'CI'
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # services:
+    #   postgres:
+    #     image: postgres:11-alpine
+    #     ports:
+    #       - "5432:5432"
+    #     env:
+    #       POSTGRES_DB: rails_test
+    #       POSTGRES_USER: rails
+    #       POSTGRES_PASSWORD: password
+    env:
+      RAILS_ENV: test
+      # DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      # Add or replace dependency steps here
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+          cache-version: 1
+      # Add or replace database setup steps here
+      - name: Set up database schema
+        run: bin/rails db:schema:load
+      # Add or replace test runners here
+      - name: Run tests
+        run: bin/rake
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          bundler-cache: true
+          cache-version: 1
+      # Add or replace any other lints here
+      # - name: Lint Ruby files
+      #   run: bin/rubocop --parallel
+      - name: Type-check Ruby files
+        run: bin/solargraph typecheck
+
+  cypress:
+    runs-on: ubuntu-latest
+    # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
+    # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
+    # Also see warning here https://github.com/cypress-io/github-action#parallel
+    # strategy:
+    # fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+    # matrix:
+    #   containers: [1, 2] # Uses 2 parallel instances
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+      - name: Cypress run
+        # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v4
+        with:
+          # Starts web server for E2E tests - replace with your own server invocation
+          # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
+          start: bin/setup && bin/dev
+          wait-on: 'http://localhost:3000' # Waits for above
+          # Records to Cypress Cloud
+          # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
+          record: true
+          # parallel: true # Runs test in parallel using settings above
+        env:
+          # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
+          # in GitHub repo → Settings → Secrets → Actions
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
