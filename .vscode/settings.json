@@ -14,14 +14,6 @@
   "[gemfile]": {
     "editor.defaultFormatter": "castwide.solargraph"
   },
-  "emmet.includeLanguages": {
-    "erb": "html"
-  },
-  "editor.fontFamily": "'Fira Code'",
-  "editor.fontSize": 12,
-  "editor.fontLigatures": true,
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.showSuggestionsAsSnippets": true,
   "solargraph.transport": "stdio",
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
