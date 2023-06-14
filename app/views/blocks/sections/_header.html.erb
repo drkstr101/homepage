@@ -17,7 +17,6 @@
         <% end %>
       </div>
       <div class="hidden lg:flex lg:gap-x-8">
-        <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Solutions</a>
         <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Blog</a>
         <a href="#" class="text-sm font-semibold leading-6 text-neutral-700 hover:text-neutral-900 hover:font-extrabold">Contact</a>
       </div>
@@ -46,15 +45,6 @@
     <label for="wa-navigation-drawer" class="drawer-overlay"></label>
     <ul class="menu bg-base-200 w-80 p-4 h-full">
       <!-- Sidebar content here -->
-      <li>
-        <%= link_to 'Solutions', "#" %>
-        <ul>
-          <li><%= link_to 'Design System', "#" %></li>
-          <li><%= link_to 'Site Builder', "#" %></li>
-          <li><%= link_to 'Bean Counter', "#" %></li>
-          <li><%= link_to 'Auto DevOps', "#" %></li>
-        </ul>
-      </li>
       <li><%= link_to 'Blog', "#" %></li>
       <li><%= link_to 'Contact', "#" %></li>
       <% if user_signed_in? %>
