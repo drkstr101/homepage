@@ -19,3 +19,9 @@ AllCops:
   Exclude:
     - 'db/migrate/*'
     - 'bin/*'
+
+Metrics/MethodLength:
+  Max: 99
+
+Metrics/BlockLength:
+  Max: 99
