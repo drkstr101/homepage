@@ -24,8 +24,18 @@
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <ul class="menu menu-horizontal">
           <% if user_signed_in? %>
-            <%= render 'blocks/molecules/user_menu' %>
-          <% elsif controller_name != 'sessions' && controller_name != 'registrations' %>
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                  <%= image_tag "avatar.png", class: 'h-12 w-auto' %>
+                </div>
+              </label>
+              <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <li><%= link_to "Settings", edit_registration_path(resource_name) %></li>
+                <li><%= link_to "Log out", delete_session_path(resource_name) %></li>
+              </ul>
+            </div>
+          <% elsif show_login? %>
             <%= link_to 'login', new_user_session_path, class: 'font-semibold hover:font-extrabold' %>
           <% end %>
         </ul>
@@ -37,7 +47,7 @@
     <ul class="menu bg-base-200 w-80 p-4 h-full">
       <!-- Sidebar content here -->
       <li>
-        Solutions
+        <%= link_to 'Solutions', "#" %>
         <ul>
           <li><%= link_to 'Design System', "#" %></li>
           <li><%= link_to 'Site Builder', "#" %></li>
@@ -47,7 +57,11 @@
       </li>
       <li><%= link_to 'Blog', "#" %></li>
       <li><%= link_to 'Contact', "#" %></li>
-      <%- if controller_name != 'sessions' %>
+      <% if user_signed_in? %>
+        <hr class="mt-4 mb-1"/>
+        <li><%= link_to "Settings", edit_registration_path(resource_name) %></li>
+        <li><%= link_to "Log out", delete_session_path(resource_name) %></li>
+      <%- elsif show_login? %>
         <hr class="mt-4 mb-1"/>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
       <% end %>
