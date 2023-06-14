@@ -3,4 +3,6 @@
 # Post - contains a brief message with a title, belongs to a User and Category
 class Post < ApplicationRecord
   belongs_to :user
+
+  validates :content, presence: true
 end
