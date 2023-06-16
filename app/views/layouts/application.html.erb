@@ -9,8 +9,6 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="h-full bg-base-100">
-    <%= notice %>
-    <%= alert %>
     <article>
       <%= render 'blocks/sections/header' %>
       <%= content_for?(:main) ? yield(:main) : yield %>
