@@ -82,6 +82,8 @@ module.exports = {
         primary: colors.cyan,
         secondary: colors.indigo,
         accent: colors.teal,
+        danger: colors.rose,
+        warning: colors.amber,
         white: '#fafafa',
         black: '#0a0a0a',
       }),

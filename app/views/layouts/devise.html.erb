@@ -5,10 +5,10 @@
         <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-neutral-900"><%= yield :header %></h2>
       </div>
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-        <div class="bg-neutral-100 p-6 sm:shadow sm:rounded-lg sm:px-12">
+        <div class="p-6 bg-white sm:bg-neutral-100 sm:shadow sm:rounded-xl sm:p-12">
           <%= yield %>
-          <p class="notice"><%= notice %></p>
-          <p class="alert text-red-700"><%= alert %></p>
+          <p class="bg-white sm:bg-neutral-100"><%= notice %></p>
+          <p class="bg-white sm:bg-neutral-100 text-danger-700"><%= alert %></p>
         </div>
       </div>
     </div>
