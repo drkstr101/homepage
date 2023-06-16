@@ -9,14 +9,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="h-full bg-base-100">
+    <%= notice %>
+    <%= alert %>
     <article>
       <%= render 'blocks/sections/header' %>
-      <main>
-        <%= yield %>
-      </main>
+      <%= content_for?(:main) ? yield(:main) : yield %>
       <%= render 'blocks/sections/footer' %>
     </article>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>
