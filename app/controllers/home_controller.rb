@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 # Handle frontend page routes
-class PagesController < ApplicationController
+class HomeController < ApplicationController
   def index; end
 end

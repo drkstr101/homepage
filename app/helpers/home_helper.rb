@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 # Helpers for PagesController
-module PagesHelper
+module HomeHelper
 end
