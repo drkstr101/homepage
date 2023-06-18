@@ -6,3 +6,12 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+desc 'Run ruby koans'
+task koans: :environment do
+  Dir.chdir(Rails.root.join('koans')) { ruby 'path_to_enlightenment.rb' }
+end
+
+task ci: %w[test koans] do
+  # Rake::Task["test"].execute
+end
