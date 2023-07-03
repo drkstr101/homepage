@@ -15,8 +15,14 @@
 # and
 #   about_triangle_project_2.rb
 #
-def triangle(a, b, c)
-  # WRITE THIS CODE
+def triangle(alpha, beta, gamma)
+  if alpha == beta && beta == gamma
+    :equilateral
+  elsif alpha == beta || beta == gamma || alpha == gamma
+    :isosceles
+  else
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
