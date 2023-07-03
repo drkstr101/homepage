@@ -23,12 +23,14 @@ class AboutConstants < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # Animal
   class Animal
     LEGS = 4
     def legs_in_animal
       LEGS
     end
 
+    # NestedAnimal
     class NestedAnimal
       def legs_in_nested_animal
         LEGS
@@ -42,6 +44,7 @@ class AboutConstants < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # Reptile
   class Reptile < Animal
     def legs_in_reptile
       LEGS
@@ -57,6 +60,7 @@ class AboutConstants < Neo::Koan
   class MyAnimals
     LEGS = 2
 
+    # Bird
     class Bird < Animal
       def legs_in_bird
         LEGS
@@ -73,11 +77,14 @@ class AboutConstants < Neo::Koan
 
   # ------------------------------------------------------------------
 
+  # MyAnimals
+  # rubocop: disable Style/ClassAndModuleChildren
   class MyAnimals::Oyster < Animal
     def legs_in_oyster
       LEGS
     end
   end
+  # rubocop: enable Style/ClassAndModuleChildren
 
   def test_who_wins_with_explicit_scoping_on_class_definition
     assert_equal 4, MyAnimals::Oyster.new.legs_in_oyster
