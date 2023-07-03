@@ -16,6 +16,13 @@
 #   about_triangle_project_2.rb
 #
 def triangle(alpha, beta, gamma)
+  raise TriangleError, 'all arguments must be grater than 0' \
+    if alpha <= 0 || beta <= 0 || gamma <= 0
+
+  temp = [alpha, beta, gamma].sort
+  raise TriangleError, 'two sides added cannot be less than or equal to one side' \
+    if temp[0] + temp[1] <= temp[2]
+
   if alpha == beta && beta == gamma
     :equilateral
   elsif alpha == beta || beta == gamma || alpha == gamma
