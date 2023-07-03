@@ -19,9 +19,19 @@ AllCops:
   Exclude:
     - 'db/migrate/*'
     - 'bin/*'
+    - 'koans/neo.rb'
 
 Metrics/MethodLength:
-  Max: 99
+  Max: 64
 
 Metrics/BlockLength:
-  Max: 99
+  Max: 64
+
+Metrics/AbcSize:
+  Max: 32
+
+Metrics/CyclomaticComplexity:
+  Max: 16
+
+Metrics/PerceivedComplexity:
+  Max: 16
